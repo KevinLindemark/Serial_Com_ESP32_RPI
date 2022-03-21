@@ -23,4 +23,5 @@ counter=0
 while 1:
     y=datetime.datetime.now()
     x=ser.readline().strip()
-    print(x," datetime is: ",y)
+    if x  != b'':
+        print(x," datetime is: ",y)
