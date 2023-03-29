@@ -19,9 +19,9 @@ ser = serial.Serial(
     timeout=1
 )
 counter=0
-print(ser.name) // name of the serial port used!
+print(ser.name) # name of the serial port used!
 while 1:
-    received_message = ser.readline() // the message send from esp32 needs to have a \n newline in the end
+    received_message = ser.readline() # the message send from esp32 needs to have a \n newline in the end
     time.sleep(1)
     print(received_message)
     if x  != b'':
