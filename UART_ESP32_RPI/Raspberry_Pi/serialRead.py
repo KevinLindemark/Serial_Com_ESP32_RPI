@@ -11,7 +11,7 @@ to be available over serial, select no. You will then be asked whether
 you would like the serial hardware to be enabled, select yes."""
 
 ser = serial.Serial(
-    port='/dev/serial0',
+    port='/dev/ttyS0',
     baudrate = 115200,
     parity=serial.PARITY_NONE,
     stopbits=serial.STOPBITS_ONE,
@@ -19,9 +19,11 @@ ser = serial.Serial(
     timeout=1
 )
 counter=0
-
+print(ser.name) // name of the serial port used!
 while 1:
-    y=datetime.datetime.now()
-    x=ser.readline().strip()
+    received_message = ser.readline() // the message send from esp32 needs to have a \n newline in the end
+    time.sleep(1)
+    print(received_message)
     if x  != b'':
-        print(x," datetime is: ",y)
+        timestamp = datetime.datetime.now()
+        print(received_message," timestamp is: ",timestamp)
