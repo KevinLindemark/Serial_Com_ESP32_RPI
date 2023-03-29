@@ -24,6 +24,6 @@ while 1:
     received_message = ser.readline() # the message send from esp32 needs to have a \n newline in the end
     time.sleep(1)
     print(received_message)
-    if x  != b'':
+    if received_message != b'':
         timestamp = datetime.datetime.now()
         print(received_message," timestamp is: ",timestamp)
